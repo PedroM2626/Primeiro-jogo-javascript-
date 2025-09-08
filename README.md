@@ -1,8 +1,8 @@
-# Primeiro Jogo JavaScript - Debiloides Fighters
+# Debiloides Fighters
 
 ![Jogo Capa](menu.png)
 
-Um jogo de luta 2D desenvolvido em JavaScript puro, inspirado em jogos clássicos de luta como Street Fighter e Mortal Kombat. O projeto foi originalmente criado por [FilipeMorato](https://github.com/FilipeMorato) e conta com contribuições de [PedroM2626](https://github.com/PedroM2626).
+Um jogo de luta 2D desenvolvido em JavaScript puro, agora disponível como aplicativo desktop usando Electron. Inspirado em jogos clássicos de luta como Street Fighter e Mortal Kombat. O projeto foi originalmente criado por [FilipeMorato](https://github.com/FilipeMorato) e conta com contribuições de [PedroM2626](https://github.com/PedroM2626).
 
 ## 🎮 Sobre o Jogo
 
@@ -31,12 +31,16 @@ Debiloides Fighters é um jogo de luta onde você pode escolher entre diferentes
 - **Web Audio API** - Sistema de áudio
 - **Sprite Animation** - Animações de personagens
 - **Collision Detection** - Sistema de colisões preciso
+- **Electron** - Para versão desktop
 
 ## 📁 Estrutura do Projeto
 
 ```
 Primeiro-jogo-javascript-/
 ├── index.html              # Ponto de entrada do jogo
+├── electron-main.js        # Arquivo principal do Electron
+├── package.json            # Configurações do projeto
+├── build.js               # Script de build personalizado
 ├── Main.js                 # Loop principal do jogo
 ├── SceneManager.js         # Gerenciamento de cenas
 ├── Fighter.js              # Classe base dos lutadores
@@ -46,7 +50,6 @@ Primeiro-jogo-javascript-/
 ├── musics.js              # Configuração das músicas
 ├── sprites.js             # Configuração dos sprites
 ├── settings.js            # Configurações do jogo
-├── 
 ├── scenes/                # Cenas do jogo
 │   ├── MenuScene.js       # Menu principal
 │   ├── CharSelectScene.js # Seleção de personagens
@@ -54,7 +57,9 @@ Primeiro-jogo-javascript-/
 ├── characters/            # Sprites dos personagens
 ├── backgrounds/           # Cenários de luta
 ├── music/                 # Trilhas sonoras
-└── sounds/                # Efeitos sonoros
+├── sounds/                # Efeitos sonoros
+├── dist/                  # Executáveis gerados (após build)
+└── node_modules/          # Dependências
 ```
 
 ## 🎯 Como Jogar
@@ -83,9 +88,48 @@ Primeiro-jogo-javascript-/
 
 ### Pré-requisitos
 - Navegador web moderno (Chrome, Firefox, Safari, Edge)
-- Servidor web local (recomendado)
+- Node.js (versão 16 ou superior) - para versão desktop
+- npm ou yarn - para versão desktop
 
-### Instalação Local
+### Opção 1: Executar como Aplicativo Desktop (Recomendado)
+
+#### Instalação
+1. **Clone o repositório**
+```bash
+git clone https://github.com/PedroM2626/Primeiro-jogo-javascript-.git
+cd Primeiro-jogo-javascript-
+```
+
+2. **Instale as dependências**
+```bash
+npm install
+```
+
+3. **Execute em modo desenvolvimento**
+```bash
+npm start
+```
+
+4. **Construir executável**
+```bash
+# Para todas as plataformas
+npm run build
+
+# Para Windows específico
+npm run build-win
+
+# Para macOS específico
+npm run build-mac
+
+# Para Linux específico
+npm run build-linux
+```
+
+Os executáveis serão criados na pasta `dist/`.
+
+### Opção 2: Executar no Navegador
+
+#### Instalação Local
 
 1. **Clone o repositório**
 ```bash
@@ -150,6 +194,14 @@ O jogo inclui:
 1. Adicione suas imagens na pasta `backgrounds/`
 2. Atualize a lista de backgrounds em `settings.js`
 3. Ajuste as dimensões se necessário
+
+## Menu do Aplicativo Desktop
+
+O aplicativo desktop inclui um menu completo com:
+- **Jogo > Novo Jogo** (Ctrl+N) - Reinicia o jogo
+- **Visualizar > Desenvolvedor** - Abre as ferramentas de desenvolvedor
+- **Controles > Teclado** - Mostra os controles do jogo
+- **Ajuda > Sobre** - Acesso ao repositório do projeto
 
 ## 🤝 Contribuindo
 
